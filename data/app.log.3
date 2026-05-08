@@ -1,0 +1,96 @@
+2026-05-05 15:45:59,737 ERROR: Exception on /employees [GET] [in C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\routes\employees.py", line 81, in employees
+    return render_template(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\employee_list.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\base.html", line 559, in top-level template code
+    {% block content %}
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\employee_list.html", line 307, in block 'content'
+    href="{{ url_for('employees', page=1, keyword=keyword or None) }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'employees' with values ['page']. Did you mean 'employees.payroll' instead?
+2026-05-05 15:45:59,745 ERROR: Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:60]
+2026-05-05 15:53:02,364 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
+2026-05-05 15:53:52,033 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
+2026-05-05 15:55:11,237 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
+2026-05-05 15:55:56,942 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
+2026-05-05 15:58:22,687 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
+2026-05-05 16:07:30,417 INFO: HR System startup [in c:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
+2026-05-05 17:37:54,494 INFO: HR System startup [in c:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
+2026-05-05 17:40:45,883 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
+2026-05-05 17:43:43,955 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
+2026-05-05 17:43:43,955 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
+2026-05-05 17:43:43,972 INFO: Employee login: badie mahmoud ali (id=250003) [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\routes\portal.py:38]
+2026-05-05 17:43:43,972 INFO: Employee login: badie mahmoud ali (id=250003) [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\routes\portal.py:38]
+2026-05-05 17:43:45,964 INFO: Employee logged out: badie mahmoud ali [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\routes\portal.py:52]
+2026-05-05 17:43:45,964 INFO: Employee logged out: badie mahmoud ali [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\routes\portal.py:52]
+2026-05-05 17:45:47,640 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
+2026-05-05 17:45:58,546 INFO: Successful login for user: admin [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:75]
+2026-05-05 17:48:46,675 WARNING: Failed login attempt for user: admin [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:80]
+2026-05-05 17:48:54,766 INFO: Successful login for user: admin [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:75]
+2026-05-05 17:49:21,536 INFO: User logged out: True [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:86]
+2026-05-05 18:03:18,231 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-05 18:08:17,692 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-05 18:08:47,775 ERROR: Exception on /add_payroll [POST] [in C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\routes\employees.py", line 532, in add_payroll
+    return redirect(url_for('payroll'))
+                    ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\helpers.py", line 232, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'payroll'. Did you mean 'employees.payroll' instead?
+2026-05-05 18:08:47,780 ERROR: Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:64]
+2026-05-05 18:12:23,491 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]

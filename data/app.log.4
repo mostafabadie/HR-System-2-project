@@ -1,0 +1,89 @@
+2026-05-05 15:43:17,148 ERROR: Exception on / [GET] [in C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py", line 113, in index
+    return render_template(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\base.html", line 559, in top-level template code
+    {% block content %}
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\index.html", line 278, in block 'content'
+    <a href="{{ url_for('performance.evaluate_list') }}" class="action-card">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'performance.evaluate_list'. Did you mean 'performance.evaluation_list' instead?
+2026-05-05 15:45:16,907 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
+2026-05-05 15:45:17,392 ERROR: Exception on /employees [GET] [in C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\routes\employees.py", line 81, in employees
+    return render_template(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\employee_list.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\base.html", line 559, in top-level template code
+    {% block content %}
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\employee_list.html", line 307, in block 'content'
+    href="{{ url_for('employees', page=1, keyword=keyword or None) }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'employees' with values ['page']. Did you mean 'employees.payroll' instead?
+2026-05-05 15:45:17,396 ERROR: Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:60]
+2026-05-05 15:45:59,286 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
