@@ -28,7 +28,7 @@ import io
 from validators import validate_employee_data
 from config import BASE_DIR
 
-pdfmetrics.registerFont(TTFont('Arabic', r'C:\Windows\Fonts\arial.ttf'))
+pdfmetrics.registerFont(TTFont('Arabic', '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'))
 
 employees_bp = Blueprint('employees', __name__)
 
