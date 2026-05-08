@@ -399,7 +399,7 @@
     <div class="employee-form-card">
         <!-- مهم: إضافة enctype للملفات -->
         <form method="POST" enctype="multipart/form-data">
-            <!-- CSRF token لو موجود -->
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             
             <!-- قسم البيانات الشخصية -->
             <div class="section-header">

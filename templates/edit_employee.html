@@ -440,7 +440,8 @@
                             </div>
                             
                             <form method="POST" id="editForm" onsubmit="return confirmEdit()">
-                                
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
                                 <!-- حقل الاسم -->
                                 <div class="form-group">
                                     <label class="form-label">
