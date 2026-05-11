@@ -229,6 +229,7 @@
     </div>
     <div class="filter-card-body">
         <form method="GET" id="searchForm">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="row">
                 <div class="col-md-4">
                     <label for="period_id" class="form-label">الفترة التقييمية</label>

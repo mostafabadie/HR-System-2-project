@@ -54,7 +54,7 @@ def request_leave():
         else:
             flash(message, 'error')
 
-        return redirect(url_for('request_leave'))
+        return redirect(url_for('leaves.request_leave'))
 
     conn = get_db_connection()
     leave_types = conn.execute('SELECT id, name, max_days FROM leave_types').fetchall()
@@ -89,7 +89,7 @@ def approve_leave(request_id):
     else:
         flash(message, 'error')
 
-    return redirect(url_for('pending_leaves'))
+    return redirect(url_for('leaves.pending_leaves'))
 
 
 @leaves_bp.route('/leaves/reject/<int:request_id>', methods=['POST'])

@@ -36,3 +36,7 @@ MAIL_PORT = int(os.environ.get("MAIL_PORT", "587"))
 MAIL_USE_TLS = os.environ.get("MAIL_USE_TLS", "True").lower() in ("true", "1", "yes")
 MAIL_USERNAME = os.environ.get("MAIL_USERNAME", "")
 MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD", "")
+
+# Webhook settings
+WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET", "your-webhook-secret-key-change-in-production")
+WEBHOOK_ENABLED = os.environ.get("WEBHOOK_ENABLED", "False").lower() in ("true", "1", "yes")

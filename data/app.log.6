@@ -1,4 +1,4 @@
-2026-05-05 15:36:11,958 ERROR: Exception on /employees [GET] [in C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py:875]
+2026-05-06 01:31:11,130 ERROR: Exception on /performance/reports [GET] [in C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,38 +12,54 @@ Traceback (most recent call last):
   File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\routes\employees.py", line 81, in employees
-    return render_template(
-           ^^^^^^^^^^^^^^^^
-  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 150, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 131, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\employee_list.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\base.html", line 559, in top-level template code
-    {% block content %}
-  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\employee_list.html", line 307, in block 'content'
-    href="{{ url_for('employees', page=1, keyword=keyword or None) }}">
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1121, in url_for
-    return self.handle_url_build_error(error, endpoint, values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1110, in url_for
-    rv = url_adapter.build(  # type: ignore[union-attr]
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'employees' with values ['page']. Did you mean 'employees.payroll' instead?
-2026-05-05 15:36:11,964 ERROR: Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:60]
-2026-05-05 15:36:52,870 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:37]
-2026-05-05 15:36:53,309 ERROR: Exception on / [GET] [in C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py:875]
+  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\routes\performance.py", line 329, in performance_reports
+    conn.close()
+           ^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: performance_reports.html
+2026-05-06 01:31:11,145 ERROR: Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:64]
+2026-05-06 01:31:26,649 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-06 01:32:24,201 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-06 01:38:27,496 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-06 01:42:36,604 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-06 01:46:32,470 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-07 22:35:01,880 INFO: HR System startup [in c:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-07 22:35:26,888 INFO: Successful login for user: admin [in c:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:80]
+2026-05-07 22:42:09,384 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-07 22:42:52,837 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-07 23:16:20,851 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-07 23:26:54,765 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-08 00:24:49,591 INFO: HR System startup [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:38]
+2026-05-08 01:02:00,254 INFO: HR System startup [in D:\HR system 2\HR-System 2 project\app.py:38]
+2026-05-08 22:49:57,176 INFO: HR System startup [in D:\HR_System 2\HR-System 2 project\app.py:38]
+2026-05-08 22:50:19,564 INFO: HR System startup [in d:\HR_System 2\HR-System 2 project\app.py:38]
+2026-05-08 22:50:41,690 INFO: HR System startup [in D:\HR_System 2\HR-System 2 project\app.py:38]
+2026-05-08 22:50:54,112 INFO: Successful login for user: admin [in D:\HR_System 2\HR-System 2 project\app.py:80]
+2026-05-08 22:51:44,781 INFO: HR System startup [in D:\HR_System 2\HR-System 2 project\app.py:38]
+2026-05-08 22:52:26,641 INFO: HR System startup [in D:\HR_System 2\HR-System 2 project\app.py:38]
+2026-05-08 22:52:26,641 INFO: HR System startup [in D:\HR_System 2\HR-System 2 project\app.py:38]
+2026-05-08 22:52:26,761 INFO: Employee added: Mohamed Badie, department: IT, position: Software Developer [in D:\HR_System 2\HR-System 2 project\routes\employees.py:188]
+2026-05-08 22:52:26,761 INFO: Employee added: Mohamed Badie, department: IT, position: Software Developer [in D:\HR_System 2\HR-System 2 project\routes\employees.py:188]
+2026-05-08 22:52:26,762 ERROR: Exception on /add [POST] [in C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -57,26 +73,12 @@ Traceback (most recent call last):
   File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py", line 113, in index
-    return render_template(
-           ^^^^^^^^^^^^^^^^
-  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 150, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\templating.py", line 131, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 1295, in render
-    self.environment.handle_exception()
-  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\base.html", line 559, in top-level template code
-    {% block content %}
-  File "C:\Users\MOSTAFA\OneDrive\Desktop\claud project\templates\index.html", line 278, in block 'content'
-    <a href="{{ url_for('performance.evaluate_list') }}" class="action-card">
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\HR_System 2\HR-System 2 project\routes\employees.py", line 198, in add_employee
+    return redirect(url_for("employees"))
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\helpers.py", line 232, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
   File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\flask\app.py", line 1121, in url_for
     return self.handle_url_build_error(error, endpoint, values)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -85,5 +87,11 @@ Traceback (most recent call last):
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Users\MOSTAFA\AppData\Local\Programs\Python\Python311\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
     raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'performance.evaluate_list'. Did you mean 'performance.evaluation_list' instead?
-2026-05-05 15:36:53,315 ERROR: Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in C:\Users\MOSTAFA\OneDrive\Desktop\claud project\app.py:60]
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'employees'. Did you mean 'employees.payroll' instead?
+2026-05-08 22:52:27,110 ERROR: Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in D:\HR_System 2\HR-System 2 project\app.py:65]
+2026-05-08 22:52:27,110 ERROR: Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in D:\HR_System 2\HR-System 2 project\app.py:65]
+2026-05-08 23:08:21,176 INFO: HR System startup [in D:\HR_System 2\HR-System 2 project\app.py:38]
+2026-05-08 23:08:35,882 INFO: HR System startup [in D:\HR_System 2\HR-System 2 project\app.py:38]
+2026-05-08 23:08:35,882 INFO: HR System startup [in D:\HR_System 2\HR-System 2 project\app.py:38]
+2026-05-08 23:08:36,085 WARNING: Failed to add employee (duplicate): Mohamed Badie [in D:\HR_System 2\HR-System 2 project\routes\employees.py:192]
+2026-05-08 23:08:36,085 WARNING: Failed to add employee (duplicate): Mohamed Badie [in D:\HR_System 2\HR-System 2 project\routes\employees.py:192]

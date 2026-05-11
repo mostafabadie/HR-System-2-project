@@ -9,7 +9,6 @@ from logging.handlers import RotatingFileHandler
 from db import get_db_connection, init_db, ensure_employee_portal_columns, ensure_payroll_schema, ensure_indexes, ensure_evaluation_periods_status
 from flask_wtf import CSRFProtect
 from flask_wtf.csrf import generate_csrf
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(__name__)
@@ -53,12 +52,18 @@ from routes.leaves import leaves_bp
 from routes.performance import performance_bp
 from routes.portal import portal_bp
 from routes.reports import reports_bp
+from api.v1 import api_bp
+from api.webhooks import webhooks_bp
+from admin.dashboard import admin_bp
 
 app.register_blueprint(employees_bp)
 app.register_blueprint(leaves_bp)
 app.register_blueprint(performance_bp)
 app.register_blueprint(portal_bp)
 app.register_blueprint(reports_bp)
+app.register_blueprint(api_bp)
+app.register_blueprint(webhooks_bp)
+app.register_blueprint(admin_bp)
 
 @app.errorhandler(500)
 def internal_error(error):

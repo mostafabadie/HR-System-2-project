@@ -109,6 +109,7 @@ def dashboard():
     dept_attendance = conn.execute('''
         SELECT e.department,
                COUNT(CASE WHEN a.check_in IS NOT NULL THEN 1 END) as present_count,
+               COUNT(e.id) as total_employees,
                COUNT(a.id) as total_records
         FROM employees e
         LEFT JOIN attendance a ON e.id = a.employee_id AND substr(a.date, 1, 7) = ?

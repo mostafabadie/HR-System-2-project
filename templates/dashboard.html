@@ -6,7 +6,7 @@
     <!-- KPI Cards Row -->
     <div class="row g-3 mb-4">
         <!-- Total Employees -->
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-3 col-md-6 col-sm-6 col-12">
             <div class="kpi-card primary">
                 <div class="kpi-icon-wrapper">
                     <i class="bi bi-people-fill"></i>
@@ -20,7 +20,7 @@
         </div>
 
         <!-- Present Today -->
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-3 col-md-6 col-sm-6 col-12">
             <div class="kpi-card success">
                 <div class="kpi-icon-wrapper">
                     <i class="bi bi-person-check-fill"></i>
@@ -60,7 +60,7 @@
                     <i class="bi bi-umbrella-fill"></i>
                 </div>
                 <div class="kpi-value">{{ on_leave_today or 0 }}</div>
-                <div class="kpi-label">في إجازة اليوم</div>
+                <div class="kpi-label">في إجازة </div>
                 <div class="kpi-trend">
                     <i class="bi bi-calendar-check"></i> طلبات إجازة معتمدة
                 </div>
@@ -247,8 +247,8 @@
                             <thead>
                                 <tr>
                                     <th>القسم</th>
-                                    <th>أيام الحضور المسجلة</th>
-                                    <th>إجمالي السجلات</th>
+                                    <th>عدد الموظفين الحاضرين</th>
+                                    <th>إجمالي الموظفين في القسم</th>
                                     <th>نسبة الحضور</th>
                                     <th>التقدم</th>
                                 </tr>
@@ -261,17 +261,25 @@
                                         {{ dept.department }}
                                     </td>
                                     <td>{{ dept.present_count or 0 }}</td>
-                                    <td>{{ dept.total_records or 0 }}</td>
+                                    <td>{{ dept.total_employees or 0 }}</td>
                                     <td>
                                         {% if dept.total_records > 0 %}
-                                            {{ ((dept.present_count / dept.total_records) * 100)|round }}%
+                                            {{ ((dept.present_count / dept.total_employees) * 100)|round }}%
                                         {% else %}
                                             0%
                                         {% endif %}
                                     </td>
-                                    <td style="min-width: 200px;">
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-success" style="width: {{ ((dept.present_count / dept.total_records) * 100)|round if dept.total_records > 0 else 0 }}%"></div>
+                                    <td style="min-width: 250px;">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="progress flex-grow-1" style="height: 8px;">
+                                                <div class="progress-bar bg-success"
+                                                     style="width: {{ ((dept.present_count / dept.total_employees) * 100)|round if dept.total_employees > 0 else 0 }}%">
+                                                </div>
+                                            </div>
+                                    
+                                            <small class="text-muted">
+                                                {{ ((dept.present_count / dept.total_employees) * 100)|round(1) if dept.total_employees > 0 else 0 }}%
+                                            </small>
                                         </div>
                                     </td>
                                 </tr>
@@ -466,6 +474,7 @@
 {% endblock %}
 
 {% block scripts %}
+#chart javascript
 <script>
     // Color palette
     const colors = {

@@ -28,7 +28,6 @@ import io
 from validators import validate_employee_data
 from config import BASE_DIR
 
-pdfmetrics.registerFont(TTFont('Arabic', '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'))
 
 employees_bp = Blueprint('employees', __name__)
 
@@ -133,6 +132,7 @@ def add_employee():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     if request.method == 'POST':
+        
         try:
             name = request.form.get('name', '').strip()
             department = request.form.get('department', '').strip()
@@ -191,11 +191,11 @@ def add_employee():
             from app import app
             app.logger.warning(f"Failed to add employee (duplicate): {name}")
             flash("اسم المستخدم للبوابة مُستخدم مسبقاً أو يوجد موظف بنفس الاسم. غيّر الاسم أو اسم المستخدم.", "error")
-            return redirect(url_for("add_employee"))
+            return redirect(url_for("employees.add_employee"))
         finally:
             conn.close()
-
-        return redirect(url_for("employees"))
+        flash('✅ تم إضافة الموظف بنجاح', 'success')
+        return redirect(url_for("employees.employees"))
 
     return render_template("add_employee.html")
 

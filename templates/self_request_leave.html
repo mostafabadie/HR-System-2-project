@@ -9,6 +9,7 @@
 <div class="row">
     <div class="col-md-6 mb-4">
         <form method="post" class="card p-3">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="mb-3">
                 <label class="form-label">نوع الإجازة</label>
                 <select name="leave_type_id" class="form-select" required>

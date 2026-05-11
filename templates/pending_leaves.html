@@ -75,6 +75,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form method="POST" action="/leaves/approve/{{ request.id }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="modal-body">
                         <p><strong>الموظف:</strong> {{ request.employee_name }}</p>
                         <p><strong>نوع الإجازة:</strong> {{ request.leave_type_name }}</p>
@@ -104,6 +105,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <form method="POST" action="/leaves/reject/{{ request.id }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="modal-body">
                         <p><strong>الموظف:</strong> {{ request.employee_name }}</p>
                         <p><strong>نوع الإجازة:</strong> {{ request.leave_type_name }}</p>

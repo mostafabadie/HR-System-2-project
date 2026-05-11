@@ -2,6 +2,16 @@
 {% block title %}إضافة موظف جديد | نظام الموارد البشرية{% endblock %}
 
 {% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="custom-alert alert-{{ category }}">
+                <i class="fas fa-check-circle"></i>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
 <style>
     .add-employee-wrapper {
         max-width: 800px;
@@ -711,5 +721,15 @@ document.getElementById('cvFile').addEventListener('change', function(e) {
         updateCVName(this);
     }
 });
+
+    setTimeout(() => {
+        const alert = document.querySelector('.custom-alert');
+        if(alert){
+            alert.style.transition = '0.5s';
+            alert.style.opacity = '0';
+            setTimeout(() => alert.remove(), 500);
+        }
+    }, 3000);
+  
 </script>
 {% endblock %}

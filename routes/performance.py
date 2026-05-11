@@ -280,19 +280,17 @@ def submit_evaluation(employee_id):
         """, (employee_id, period_id)).fetchone()
         conn.close()
 
+        evaluation_id = None
         if existing:
             update_performance_evaluation(existing['id'], evaluator_id, evaluation_data)
+            evaluation_id = existing['id']
             flash('تم تحديث التقييم بنجاح', 'success')
         else:
-            create_performance_evaluation(employee_id, period_id, evaluator_id, evaluation_data)
+            evaluation_id = create_performance_evaluation(employee_id, period_id, evaluator_id, evaluation_data)
             flash('تم إنشاء التقييم بنجاح', 'success')
 
         if request.form.get('complete_evaluation'):
-            if existing:
-                complete_performance_evaluation(existing['id'], evaluator_id)
-            else:
-                evaluation_id = create_performance_evaluation(employee_id, period_id, evaluator_id, evaluation_data)
-                complete_performance_evaluation(evaluation_id, evaluator_id)
+            complete_performance_evaluation(evaluation_id, evaluator_id)
             flash('تم إكمال التقييم', 'success')
 
     except Exception as e:
